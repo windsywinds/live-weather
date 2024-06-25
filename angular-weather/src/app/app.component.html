@@ -1,0 +1,42 @@
+<div class="main">
+  <div class="app">
+    <div class="search-bar">
+      <img src="icons/location.png" class="icons ilocation" />
+      <input type="text" placeholder="Enter your city">
+      <button (click)="getWeather()" class="search-button">
+        <img src="icons/search.png" class="icons"/>
+      </button>
+    </div>
+
+    <div class="weather-box" *ngIf="weatherData">
+      <img [src]="weatherImage" alt="Weather Icon">
+      <p class="temperature">{{ weatherData.main.temp }}°C</p>
+      <p class="description">{{ weatherData.weather[0].description }}</p>
+    </div>
+
+    <div class="weather-details" *ngIf="weatherData">
+      <div class="humidity">
+        <img src="icons/humidity.png" class="icons results" />
+        <div class="text">
+          <section>{{ weatherData.main.humidity }}%</section>
+          <p>Humidity</p>
+        </div>
+      </div>
+      <div class="wind">
+        <img src="icons/wind.png" class="icons results" />
+        <div class="text">
+          <section>{{ weatherData.wind.speed }} Km/h</section>
+          <p>Wind Speed</p>
+        </div>
+      </div>
+    </div>
+    <div class="error" *ngIf="errorMessage">
+      <p>{{ errorMessage }}</p>
+      <p>Check the location and try again.</p>
+    </div>
+  </div>
+  <div class="footer">
+    <a href="https://www.flaticon.com/free-icons/snow" title="snow icons" class="credits">Icons created by Freepik - Flaticon</a>
+  </div>
+</div>
+<router-outlet></router-outlet>
