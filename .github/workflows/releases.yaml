@@ -1,10 +1,14 @@
-
+#Release for electron-weather
 
 name: Release App
 on:
   release:
     types:
       - created
+
+defaults:
+  run:
+    working-directory: electron-weather
 
 jobs:
 

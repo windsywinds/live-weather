@@ -1,7 +1,13 @@
+#Build for electron-weather
+
 name: Publish app
 on:
   push:
-    branches: ['master']
+    branches: ['main']
+
+defaults:
+  run:
+    working-directory: electron-weather
 
 jobs:
   build:
