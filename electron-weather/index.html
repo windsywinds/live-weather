@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./src/images/icon.png" />
+    <script src="https://kit.fontawesome.com/f8ebf7ed52.js" crossorigin="anonymous"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <title>Live Weather with Electron</title>
+
+  </head>
+  <body>
+    
+      <div class="app">
+  
+          <div class="search-bar">
+              <i class="fa-solid fa-location-dot"></i>
+              <input type="text" placeholder="Enter your city">
+              <button class="fa-solid fa-magnifying-glass"></button>
+          </div>
+  
+          <div class="weather-box">
+              <image></image>
+              <p class="temperature"></p>
+              <p class="description"></p>
+          </div>
+  
+          
+  
+          <div class="weather-details">
+              <div class="humidity">
+                  <i class="fa-solid fa-droplet"></i>
+                  <div class="text">
+                      <section></section>
+                      <p>Humidity</p>
+                  </div>
+              </div>
+              <div class="wind">
+                  <i class="fa-solid fa-wind"></i>
+                  <div class="text">
+                      <section></section>
+                      <p>Wind Speed</p>
+                  </div>
+              </div>
+          </div>
+          <div class="error">
+              <p>Sorry, no results!</p>
+              <p>Check the location and try again.</p>
+          </div>
+  
+  
+  
+      </div>
+  
+      
+  
+    <script type="module" src="/src/renderer.js"></script>
+  </body>
+</html>

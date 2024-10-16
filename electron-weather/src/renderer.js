@@ -1,15 +1,21 @@
+import './index.css';
+
 const app = document.querySelector('.app');
 const search = document.querySelector('.search-bar button');
+const searchInput = document.querySelector('.search-bar input');
 const weatherBox = document.querySelector('.weather-box');
 const weatherDetails = document.querySelector('.weather-details');
 const error = document.querySelector('.error');
 
+import rainIcon from './images/rain.png';
+import cloudIcon from './images/cloud.png';
+import clearIcon from './images/clear.png';
+import stormIcon from './images/storm.png';
+import snowIcon from './images/snow.png';
+import mistIcon from './images/mist.png';
 
-
-
-search.addEventListener('click', () => {
-
-  const city = document.querySelector('.search-bar input').value;
+const searchWeather = () => {
+  const city = searchInput.value;
   const APIKey ='YOUR_OPEN_WEATHER_API_KEY' //add your OpenWeatherAPI key here
 
   if (city != '') {
@@ -44,27 +50,27 @@ search.addEventListener('click', () => {
     const wind = document.querySelector('.wind section');
 
     switch (data.weather[0].main) {
-      case 'Clear':
-        image.src = 'images/clear.png';
-        break;
-      case 'Clouds':
-         image.src = 'images/cloud.png';
-        break;
-      case 'Rain':
-        image.src = 'images/rain.png';
-        break;      
-      case 'Thunderstorm':
-        image.src = 'images/storm.png';
-        break;
-      case 'Snow':
-        image.src = 'images/snow.png';
-        break;
-      case 'Mist':
-        image.src = 'images/mist.png';
-        break;
+        case 'Clear':
+          image.src = clearIcon;
+          break;
+        case 'Clouds':
+          image.src = cloudIcon;
+          break;
+        case 'Rain':
+          image.src = rainIcon;
+          break;      
+        case 'Thunderstorm':
+          image.src = stormIcon;
+          break;
+        case 'Snow':
+          image.src = snowIcon;
+          break;
+        case 'Mist':
+          image.src = mistIcon;
+          break;
         default:
-          image.src ='';
-    }
+          image.src = '';
+      }
 
     temperature.innerHTML = `${data.main.temp}°C`;
     description.innerHTML = `${data.weather[0].description}`;
@@ -79,5 +85,12 @@ search.addEventListener('click', () => {
   });  
 
 
-})
+}
 
+search.addEventListener('click', searchWeather);
+
+searchInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    searchWeather();
+  }
+});
