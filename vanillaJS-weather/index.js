@@ -1,5 +1,6 @@
 const app = document.querySelector('.app');
 const search = document.querySelector('.search-bar button');
+const searchInput = document.querySelector('.search-bar input');
 const weatherBox = document.querySelector('.weather-box');
 const weatherDetails = document.querySelector('.weather-details');
 const error = document.querySelector('.error');
@@ -7,9 +8,8 @@ const error = document.querySelector('.error');
 
 
 
-search.addEventListener('click', () => {
-
-  const city = document.querySelector('.search-bar input').value;
+const searchWeather = () => {
+  const city = searchInput.value;
   const APIKey ='YOUR_OPEN_WEATHER_API_KEY' //add your OpenWeatherAPI key here
 
   if (city != '') {
@@ -79,5 +79,11 @@ search.addEventListener('click', () => {
   });  
 
 
-})
+}
+search.addEventListener('click', searchWeather);
 
+searchInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    searchWeather();
+  }
+});
