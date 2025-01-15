@@ -14,5 +14,6 @@ Made with vanilla JS
 
 ## electron-weather
 
-Made using ElectronJS: https://www.electronjs.org/
-This is a framework for building desktop applications (Windows, MacOS, Linux) using JavaScript. It utilises Chromium and Node.js.
+Made using ElectronJS: https://www.electronjs.org/  
+This is a framework for building desktop applications (Windows, MacOS, Linux) using JavaScript. It utilises Chromium and Node.js.  
+Application build can be found here: https://github.com/windsywinds/live-weather/releases
